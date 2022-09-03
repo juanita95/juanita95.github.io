@@ -1,0 +1,16 @@
+<a
+  class="items"
+  (click)="logOut(menuItem.title)"
+  [routerLink]="menuItem.router"
+>
+  <app-icon 
+    class="items__icon"
+    [color]="'white'"
+    [url]="menuItem.icon">
+  </app-icon>
+
+  <app-text 
+    [customStyle]="textStyle">
+    {{ menuItem.title }}
+  </app-text>
+</a>

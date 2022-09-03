@@ -1,0 +1,8 @@
+@use "src/assets/styles/tokens/buttons";
+
+.input {
+  min-width: 8rem;
+  padding: 5px 15px;
+  border: 2.5px solid  var(--color-button-green);
+  @extend .bsp__base;
+}

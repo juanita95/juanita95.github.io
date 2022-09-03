@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "src/assets/styles/tokens/index";
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }

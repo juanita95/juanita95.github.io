@@ -1,0 +1,10 @@
+.items {
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: .5rem;
+  }
+}

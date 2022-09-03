@@ -1,0 +1,13 @@
+<section class="wrapper">
+  <app-header-pages
+    [title]="'Inicio'"
+  >
+  </app-header-pages>
+  
+  <app-track-list
+  *ngIf="(tracks$ | async) as tracks"
+    [tracks]="tracks.tracks"
+  >
+  </app-track-list>
+</section>
+

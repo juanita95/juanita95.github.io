@@ -1,0 +1,20 @@
+@use "src/assets/styles/tokens/buttons";
+
+.bsp {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 0;
+  text-align: center;
+  cursor: pointer;
+	&:hover {
+    background-color: var(--color-button-gy);
+  }
+  &--general {
+    background-color: var(--color-button-green);
+    border: none;
+    @extend .bsp__base;
+  }
+}

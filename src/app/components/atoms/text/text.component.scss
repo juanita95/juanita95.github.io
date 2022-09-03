@@ -1,0 +1,38 @@
+@import "src/assets/styles/tokens/texts";
+
+// FONT
+
+$min_width: 320px;
+$max_width: 1920px;
+
+.text {
+// Branding medium
+
+  &--medium {
+    @include fluid-type($min_width, $max_width, 18px, 22px);
+    font-family: brandingSemiLight, serif;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--color-text-wh);
+    width: 100%;
+  }
+
+// Branding small white
+  &--small--wh {
+    @include fluid-type($min_width, $max_width, 12px, 15px);
+    font-family: branding, serif;
+    font-weight: 900;
+    margin: 0;
+    color: var(--color-text-wh);
+    line-height: 1;
+  }
+
+// Branding small
+  &--small--blk {
+    @include fluid-type($min_width, $max_width, 12px, 15px);
+    font-family: branding, serif;
+    margin: 0;
+    color: var(--color-text-blk);
+    line-height: 1;
+  }
+}
