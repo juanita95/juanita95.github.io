@@ -3,12 +3,12 @@ import { User } from "src/app/core/interfaces/auth.interface";
 
 const getToken = createAction(
   '[auth] add token',
-  props<{ token: any }>()
+  props<{ token: string }>()
 );
 
 const accessToken = createAction(
   '[auth] add token',
-  props<{ token: any }>()
+  props<{ token: string }>()
 );
 
 const getUser = createAction(

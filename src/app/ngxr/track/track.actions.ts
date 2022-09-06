@@ -6,7 +6,7 @@ const loadTracks = createAction(
   props<{ genre: string }>()
 );
 
-const updatefavorites = createAction(
+const updateFavorites = createAction(
   '[Tracks] Add Favorite',
   props<{ tracks: Track[] }>()
 );
@@ -20,7 +20,7 @@ const favorites = createAction(
   '[Tracks] Add Favorite',
   props<{ tracks: Track[] }>()
 );
-  
+
 const tracks = createAction(
   '[Tracks] Get Tracks Success',
   props<{ tracks: Track[] }>()
@@ -28,7 +28,7 @@ const tracks = createAction(
   
 export const trackActions = {
   favorites,
-  updatefavorites,
+  updateFavorites,
   isFavorite,
   loadTracks,
   tracks

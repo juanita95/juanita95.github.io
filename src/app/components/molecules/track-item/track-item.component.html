@@ -1,7 +1,7 @@
 <ng-container *ngIf="track">
   <section class="card">
     <app-image  
-      *ngIf="track.album.images[0].url"     
+      *ngIf="track.album.images[0]"     
       class="card__img"
       [iconUrl]="track.album.images[0].url"
       [alt]="'imagen canción'"

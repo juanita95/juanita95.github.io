@@ -6,14 +6,16 @@ import { CustomSplitPipe } from './pipes/custom-split.pipe';
 
 @NgModule({
   declarations: [
-    CustomSplitPipe
+    CustomSplitPipe,
+    
   ],
   imports: [
     CommonModule,
     SharedRoutingModule
   ],
   exports: [
-    CustomSplitPipe
+    CustomSplitPipe,
+    
   ]
 })
 export class SharedModule { }

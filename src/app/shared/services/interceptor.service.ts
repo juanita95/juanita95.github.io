@@ -11,21 +11,27 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { AppState } from 'src/app/ngxr/app.state';
 import { authSelectors } from 'src/app/ngxr/auth/auth.selector';
+import { BaseComponent } from '../components/base-component/base-component';
+import { authActions } from 'src/app/ngxr/auth/auth.actions';
 
 @Injectable()
-export class Interceptor implements HttpInterceptor {
+export class Interceptor extends BaseComponent implements HttpInterceptor {
 
   accessToken: string = '';
-  constructor(private store: Store<AppState>, private router: Router) {}
+  constructor(private store: Store<AppState>, private router: Router) {
+    super()
+  }
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    this.store
-    .select(authSelectors.accessToken)
-    .subscribe((token) => (this.accessToken = token));
-
+    this.subSink$.add(
+      this.store
+      .select(authSelectors.accessToken)
+      .subscribe((token) => (this.accessToken = token))
+    )
+ 
     const apiReq = request.clone({
       headers: request.headers.set(
         'Authorization',
@@ -42,8 +48,8 @@ export class Interceptor implements HttpInterceptor {
     console.log('[Interceptor Error]:');
     console.log(errorEvent);
     if (errorEvent?.error?.error?.message === 'The access token expired') {
-     // this.store.dispatch(authActions.accessToken());
-     //  this.router.navigate(['/auth/login']);
+      this.store.dispatch(authActions.accessToken({token: ''}));
+       this.router.navigate(['/auth/login']);
     }
     return throwError(()=> errorEvent);
   }

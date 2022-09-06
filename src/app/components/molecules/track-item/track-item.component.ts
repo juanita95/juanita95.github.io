@@ -5,21 +5,24 @@ import { trackActions } from 'src/app/ngxr/track/track.actions';
 import { trackSelectors } from 'src/app/ngxr/track/track.selector';
 import { Track } from 'src/app/shared/interfaces/track.interface';
 import { statusClassText } from '../../atoms/interfaces/text-class.interface';
+import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
 
 @Component({
   selector: 'app-track-item',
   templateUrl: './track-item.component.html',
   styleUrls: ['./track-item.component.scss']
 })
-export class TrackItemComponent implements OnInit {
+export class TrackItemComponent extends BaseComponent implements OnInit {
 
   @Input() track?: Track;
   isFavorite: boolean = false;
   colorIcon: string = 'gray';
-  tracks: Track[] = [];
+  favoriteTracks: Track[] = [];
   textStyle: statusClassText = statusClassText.SMALL_WHITE;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) { 
+    super()
+  }
 
   ngOnInit(): void {
     this.getFavoritesTracks();
@@ -43,25 +46,28 @@ export class TrackItemComponent implements OnInit {
   }
 
   getFavoriteState(): void {
-    this.store.select(trackSelectors.isFavorite).subscribe((isFavorite) => {
-      this.isFavorite = isFavorite;
-    });
+    this.subSink$.add(
+      this.store.select(trackSelectors.isFavorite).subscribe((isFavorite) => {
+        this.isFavorite = isFavorite;
+      })
+    )
   }
 
   getFavoritesTracks(): void {
-    this.store.select(trackSelectors.getFavorites).subscribe((tracks) => {
-      this.tracks = tracks;
-    });
+    this.subSink$.add(
+      this.store.select(trackSelectors.getFavorites).subscribe((tracks) => {
+        this.favoriteTracks = tracks;
+      })
+    )
   }
 
   addTrackToFavorite(track: Track): void {
-    this.tracks = this.tracks.concat(track);
-    this.store.dispatch(trackActions.updatefavorites({tracks: this.tracks}));
+    this.favoriteTracks = this.favoriteTracks.concat(track);
+    this.store.dispatch(trackActions.updateFavorites({tracks: this.favoriteTracks}));
   }
 
   removeTrackToFavorite(removeTrack: Track): void {
-    this.tracks = this.tracks.filter(track => track.id !== removeTrack.id);
-    this.store.dispatch(trackActions.updatefavorites({tracks: this.tracks}));
+    this.favoriteTracks = this.favoriteTracks.filter(track => track.id !== removeTrack.id);
+    this.store.dispatch(trackActions.updateFavorites({tracks: this.favoriteTracks}));
   }
-
 }

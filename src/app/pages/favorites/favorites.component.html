@@ -1,12 +1,11 @@
 <section class="wrapper">
   <app-header-pages
-    [title]="'favorites'"
+    [title]="'Favorites'"
   >
   </app-header-pages>
   
   <app-track-list
-    *ngIf="(tracks$ | async) as tracks"
-    [tracks]="tracks"
+    [tracks]="favoriteTracks"
   >
   </app-track-list>
 </section>

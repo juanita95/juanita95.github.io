@@ -22,5 +22,5 @@ const isFavorite = createSelector(
 export const trackSelectors = {
   getTracks,
   getFavorites,
-  isFavorite
+  isFavorite,
 }

@@ -22,7 +22,7 @@ export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-    keys: ['tracks', { auth: ['accessToken']}],
+    keys: [{ tracks: ['isFavorite', 'favorites']}, { auth: ['accessToken']}],
     rehydrate: true,
   })(reducer);
 }

@@ -19,7 +19,7 @@ $max_width: 1920px;
 
 // Branding small white
   &--small--wh {
-    @include fluid-type($min_width, $max_width, 12px, 15px);
+    @include fluid-type($min_width, $max_width, 13px, 16px);
     font-family: branding, serif;
     font-weight: 900;
     margin: 0;

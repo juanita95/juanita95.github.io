@@ -20,16 +20,6 @@ export class AuthEffect {
         map(user => authActions.user({user})),
         ))
   )
-);
-
-  loadToken$ = createEffect(() => this.actions$.pipe(
-    ofType(authActions.getToken),
-    tap((action) => authActions.accessToken({token: document.cookie})
-     )
-  ), {
-    dispatch: false,
-  }
-);
-
+)
 
 }

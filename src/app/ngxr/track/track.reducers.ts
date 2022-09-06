@@ -11,7 +11,7 @@ export interface TrackType {
 export const initialState: TrackType = {
   getTracks: [],
   favorites: [],
-  isFavorite: false
+  isFavorite: false,
 }
 
 export const tracksReducer = createReducer(

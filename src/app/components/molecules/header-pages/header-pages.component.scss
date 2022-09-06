@@ -1,6 +1,12 @@
-.header__pages {
-  display: flex;
+.header {
+  display: grid;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 1rem;
+  grid-template-columns: auto auto;
+  &__serach {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

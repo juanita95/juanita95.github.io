@@ -1,12 +1,11 @@
 <section class="wrapper">
   <app-header-pages
-    [title]="'Inicio'"
+    [title]="'Home'"
   >
   </app-header-pages>
   
   <app-track-list
-  *ngIf="(tracks$ | async) as tracks"
-    [tracks]="tracks.tracks"
+    [tracks]="recommendedTrack"
   >
   </app-track-list>
 </section>
