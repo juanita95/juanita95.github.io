@@ -1,5 +1,5 @@
 <div class="tracks">
-  <ng-container *ngFor="let track of tracks">
+  <ng-container *ngFor="let track of tracks | search:textFilter">
     <app-track-item class="tracks__track" [track]="track"></app-track-item>
   </ng-container>
 </div>

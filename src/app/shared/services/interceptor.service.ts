@@ -6,19 +6,26 @@ import {
   HttpInterceptor,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { catchError, Observable, of, throwError } from 'rxjs';
+import { catchError, finalize, Observable, of, throwError } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { AppState } from 'src/app/ngxr/app.state';
 import { authSelectors } from 'src/app/ngxr/auth/auth.selector';
 import { BaseComponent } from '../components/base-component/base-component';
 import { authActions } from 'src/app/ngxr/auth/auth.actions';
+import { LoadingService } from './loading.service';
 
 @Injectable()
 export class Interceptor extends BaseComponent implements HttpInterceptor {
 
+  valuesOnCall: number = 0;
   accessToken: string = '';
-  constructor(private store: Store<AppState>, private router: Router) {
+  
+  constructor(
+    private store: Store<AppState>, 
+    private router: Router,
+    public loadingService: LoadingService
+    ) {
     super()
   }
 
@@ -26,6 +33,7 @@ export class Interceptor extends BaseComponent implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    this.loadingService.setLoading(true);
     this.subSink$.add(
       this.store
       .select(authSelectors.accessToken)
@@ -38,21 +46,26 @@ export class Interceptor extends BaseComponent implements HttpInterceptor {
         `Bearer ${this.accessToken}`
       ),
     });
-
+    this.valuesOnCall++;
     return next.handle(apiReq).pipe(
-      catchError(this.handleError)
+      catchError((err: HttpErrorResponse) => {
+        if (err?.error?.error?.message === 'The access token expired') {
+          this.store.dispatch(authActions.accessToken({token: ''}));
+          this.router.navigate(['/auth/login']);
+        }
+        return of();
+      }),
+      finalize(() => {
+        this.valuesOnCall--;
+        setTimeout(() => {
+          if (this.valuesOnCall === 0) {
+            this.loadingService.setLoading(false);
+          }
+        }, 10);
+      })
     );
   }
 
-  public handleError(errorEvent: HttpErrorResponse) {
-    console.log('[Interceptor Error]:');
-    console.log(errorEvent);
-    if (errorEvent?.error?.error?.message === 'The access token expired') {
-      this.store.dispatch(authActions.accessToken({token: ''}));
-       this.router.navigate(['/auth/login']);
-    }
-    return throwError(()=> errorEvent);
-  }
 }
 
 

@@ -23,10 +23,6 @@ export const tracksReducer = createReducer(
   on(trackActions.favorites, (state, action) => ({
     ...state,
     favorites: action.tracks,
-  })),
-  on(trackActions.isFavorite, (state, action) => ({
-    ...state,
-    isFavorite: action.isFavorite,
   }))
 
 );

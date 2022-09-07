@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { CookieService } from 'ngx-cookie-service';
-import { EMPTY } from 'rxjs';
 import { statusClassText } from 'src/app/components/atoms/interfaces/text-class.interface';
 import { AppState } from 'src/app/ngxr/app.state';
 import { authActions } from 'src/app/ngxr/auth/auth.actions';
-import { authSelectors } from 'src/app/ngxr/auth/auth.selector';
 
 @Component({
   selector: 'app-token',

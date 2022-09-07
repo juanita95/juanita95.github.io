@@ -11,11 +11,6 @@ const updateFavorites = createAction(
   props<{ tracks: Track[] }>()
 );
 
-const isFavorite = createAction(
-  '[Tracks] is Favorite',
-  props<{ isFavorite: boolean }>()
-);
-
 const favorites = createAction(
   '[Tracks] Add Favorite',
   props<{ tracks: Track[] }>()
@@ -29,7 +24,6 @@ const tracks = createAction(
 export const trackActions = {
   favorites,
   updateFavorites,
-  isFavorite,
   loadTracks,
   tracks
 };

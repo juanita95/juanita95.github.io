@@ -16,7 +16,7 @@ export class TrackEffect {
     ofType(trackActions.loadTracks),
     mergeMap((action) => this.trackService.getTracks(action.genre)
       .pipe(
-        map(tracks => trackActions.tracks({tracks})),
+        map((tracks: any )=> trackActions.tracks({tracks: tracks.tracks})),
                 catchError(() => EMPTY)
         ))
   )

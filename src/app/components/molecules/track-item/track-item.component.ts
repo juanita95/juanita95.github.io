@@ -14,9 +14,7 @@ import { BaseComponent } from 'src/app/shared/components/base-component/base-com
 })
 export class TrackItemComponent extends BaseComponent implements OnInit {
 
-  @Input() track?: Track;
-  isFavorite: boolean = false;
-  colorIcon: string = 'gray';
+  @Input() track: Track = new Track();
   favoriteTracks: Track[] = [];
   textStyle: statusClassText = statusClassText.SMALL_WHITE;
 
@@ -26,7 +24,6 @@ export class TrackItemComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFavoritesTracks();
-    this.getFavoriteState();
   }
 
   getNameArtist() {
@@ -35,22 +32,16 @@ export class TrackItemComponent extends BaseComponent implements OnInit {
   }
 
   addColorIcon(): string {
-    return this.colorIcon = this.isFavorite 
+    const track = this.favoriteTracks.find((track) => track.id === this.track.id);
+    if (track && this.track.id === track!.id) this.track.isFavorite = true
+    return this.track.isFavorite 
       ? 'white' : 'gray';
   }
 
-  addRemoveFavorites(track: Track): void {
-    this.isFavorite = !this.isFavorite;
-    this.isFavorite ? this.addTrackToFavorite(track) : this.removeTrackToFavorite(track);
+  addRemoveFavorites(): void {
+    this.track.isFavorite = !this.track.isFavorite;
+    this.track.isFavorite ? this.addTrackToFavorite(this.track) : this.removeTrackToFavorite(this.track);
 
-  }
-
-  getFavoriteState(): void {
-    this.subSink$.add(
-      this.store.select(trackSelectors.isFavorite).subscribe((isFavorite) => {
-        this.isFavorite = isFavorite;
-      })
-    )
   }
 
   getFavoritesTracks(): void {
@@ -61,8 +52,8 @@ export class TrackItemComponent extends BaseComponent implements OnInit {
     )
   }
 
-  addTrackToFavorite(track: Track): void {
-    this.favoriteTracks = this.favoriteTracks.concat(track);
+  addTrackToFavorite(addTrack: Track): void {
+    this.favoriteTracks = this.favoriteTracks.concat(addTrack);
     this.store.dispatch(trackActions.updateFavorites({tracks: this.favoriteTracks}));
   }
 

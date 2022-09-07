@@ -6,6 +6,7 @@ import { TextComponent } from './text/text.component';
 import { TitleComponent } from './title/title.component';
 import { ImageComponent } from './image/image.component';
 import { IconComponent } from './icon/icon.component';
+import { AudioComponent } from './audio/audio.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { IconComponent } from './icon/icon.component';
     TextComponent,
     TitleComponent,
     IconComponent,
+    AudioComponent
   ],
   imports: [
     CommonModule
@@ -26,7 +28,8 @@ import { IconComponent } from './icon/icon.component';
     IconComponent,
     SearchInputComponent,
     TextComponent,
-    TitleComponent
+    TitleComponent,
+    AudioComponent
   ]
 })
 export class AtomsModule { }

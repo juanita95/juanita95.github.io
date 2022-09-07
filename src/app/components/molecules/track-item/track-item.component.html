@@ -10,25 +10,34 @@
 
     <div class="card__info">
       <div class="card__info_title">
+
         <app-text 
-        [customStyle]="textStyle"
+          class="card__text"
+          [customStyle]="textStyle"
         >{{ track.name }}
-      </app-text
-      >
-      <app-text
-        [customStyle]="textStyle"
-      >
+        </app-text>
+
+        <app-text
+          class="card__text"
+          [customStyle]="textStyle"
+        >
         By {{ getNameArtist() }}
-      </app-text
-      >
+        </app-text>
       </div>
 
       <app-icon 
         class="card__icon"
-        (click)="addRemoveFavorites(track);"
+        (click)="addRemoveFavorites();"
         [color]="addColorIcon()"
         [url]="'/assets/svg/fav.svg'">
     </app-icon>
+
     </div>
+
+    <app-audio 
+      class="card__audio"
+      *ngIf="track.preview_url" 
+      [url]="track.preview_url">
+    </app-audio>
   </section>
 </ng-container>

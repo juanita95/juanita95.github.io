@@ -17,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TrackEffect } from './ngxr/track/track.effects';
 import { AuthEffect } from './ngxr/auth/auth.effects';
 import { localStorageSync } from 'ngrx-store-localstorage';
+import { NgxLoadingModule } from 'ngx-loading';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
@@ -40,7 +41,11 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     ComponentsModule,
     CoreModule,
     PagesModule,
-    StoreModule.forRoot(ROOT_REDUCERS, {metaReducers}),
+    NgxLoadingModule,
+    StoreModule.forRoot(ROOT_REDUCERS, {metaReducers, runtimeChecks: {
+      strictStateImmutability: false,
+      strictActionImmutability: false,
+    },}),
     StoreDevtoolsModule.instrument({ name: 'TEST' }),
     EffectsModule.forRoot([TrackEffect, AuthEffect])
   ],

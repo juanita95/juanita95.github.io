@@ -6,7 +6,7 @@ import { TemplatesModule } from './templates/templates.module';
 
 @NgModule({
   declarations: [
-  ],
+ ],
   imports: [
     CommonModule,
     TemplatesModule,

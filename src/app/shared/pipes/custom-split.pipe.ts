@@ -5,8 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CustomSplitPipe implements PipeTransform {
 
-  transform(value: string, ...args: string[]): unknown {
-    const [character] = args
+  transform(value: string, character: string): string {
     return value.split(character)[0];
   }
 

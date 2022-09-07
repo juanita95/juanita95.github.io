@@ -14,13 +14,7 @@ const getFavorites = createSelector(
   (track: TrackType) => track.favorites
 );
 
-const isFavorite = createSelector(
-  selectTrackState,
-  (track: TrackType) => track.isFavorite
-);
-
 export const trackSelectors = {
   getTracks,
   getFavorites,
-  isFavorite,
 }

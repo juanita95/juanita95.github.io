@@ -11,7 +11,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "types": ["node"],
     "typeRoots": ["node_modules/@types"],
     "declaration": false,
     "downlevelIteration": true,
@@ -23,12 +22,16 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "types": ["jest", "node" ],
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "exclude": ["**/__test__/*"],
+  "include": ["src/"]
 }

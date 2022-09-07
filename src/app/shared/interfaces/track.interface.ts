@@ -1,22 +1,23 @@
 import { External_urls } from "src/app/core/interfaces/auth.interface";
 
-export interface Track {
-	album: Album;
-  artists: Artist[];
-  available_markets: string[];
-  disc_number: number;
-  duration_ms: number;
-  explicit: boolean;
-  external_ids: string;
-  href: string;
-  id: string;
-  is_local: boolean;
-  name: string;
-  popularity: number;
-  preview_url: null | string;
-  track_number: number;
-  type: string;
-  uri: string;
+export class Track {
+	album!: Album;
+  artists: Artist[] = [];
+  available_markets: string[] = [];
+  disc_number: number = 0;
+  duration_ms: number = 0;
+  explicit: boolean = false;
+  external_ids: string = '';
+  href: string = '';
+  isFavorite: boolean = false
+  id: string = '';
+  is_local: boolean = false;
+  name: string = '';
+  popularity: number = 0;
+  preview_url: null | string = '';
+  track_number: number = 0;
+  type: string = '';
+  uri: string = '';
 }
 
 export interface Album {
