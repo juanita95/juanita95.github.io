@@ -1,25 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideMockStore } from '@ngrx/store/testing';
-import { SearchInputComponent } from './search-input.component';
+import { Store } from '@ngrx/store';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { initialState } from '../../../../src/app/ngxr/searcher/search.reducers';
+import { SearchInputComponent } from '../../../../src/app/components/atoms/search-input/search-input.component';
+import { searchActions } from '../../../../src/app/ngxr/searcher/search.actions';
+
 
 describe('SearchInputComponent', () => {
   let component: SearchInputComponent;
   let fixture: ComponentFixture<SearchInputComponent>;
-  let compiled: HTMLElement;
+  let store: Store
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SearchInputComponent ],
-      providers: [provideMockStore({})],
+      providers: [provideMockStore({initialState})],
     })
     .compileComponents();
+    store = TestBed.inject(MockStore);
 
     fixture = TestBed.createComponent(SearchInputComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

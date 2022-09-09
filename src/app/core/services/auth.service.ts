@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthService {
 
-    constructor(private http: HttpClient, private route: ActivatedRoute ) {}
+    constructor(private http: HttpClient ) {}
 
   getUser(): Observable<User>{
     return this.http.get<User>(`${environment.spotify_api}/me`);

@@ -9,7 +9,7 @@ import {lastValueFrom} from "rxjs";
 })
 export class IconComponent implements OnInit, AfterViewInit, OnChanges {
   
-  @Input() url?: string;
+  @Input() url: string = '';
   @Input() color: string = '';
   @ViewChild('svgIcons') svgIcons?: ElementRef;
 
@@ -28,7 +28,7 @@ export class IconComponent implements OnInit, AfterViewInit, OnChanges {
 
   async readFile(): Promise<void> {
     const result: string = await lastValueFrom(
-      this.http.get(this.url ?? 'assets/svg/error.svg', {responseType: 'text'})
+      this.http.get(this.url, {responseType: 'text'})
     );
     if(this.svgIcons){
       this.svgIcons.nativeElement.innerHTML = this.normalizeSvg(result);

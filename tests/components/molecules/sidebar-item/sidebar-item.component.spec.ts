@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidebarItemComponent } from './sidebar-item.component';
+import { SidebarItemComponent } from '../../../../src/app/components/molecules/sidebar-item/sidebar-item.component';
 
 describe('SidebarItemComponent', () => {
   let component: SidebarItemComponent;
