@@ -1,7 +1,7 @@
-export class User {
+export class IUser {
   display_name: string = '';
-  External_urls: External_urls = {spotify: ''};
-  followers: Followers = {href: null, total: 0};
+  External_urls: IExternalUrls = {spotify: ''};
+  followers: IFollowers = {href: null, total: 0};
   href: string = '';
 	id: string = '';
 	images: string[] = [];
@@ -9,11 +9,11 @@ export class User {
 	uri: string = '';
 }
 
-export interface External_urls {
+export interface IExternalUrls {
 	spotify: string;
 }
 
-interface Followers {
+interface IFollowers {
 	href: null;
 	total: number;
 }

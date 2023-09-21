@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/core/interfaces/auth.interface';
 import { AppState } from 'src/app/ngxr/app.state';
-import { authActions } from 'src/app/ngxr/auth/auth.actions';
-import { authSelectors } from 'src/app/ngxr/auth/auth.selector';
 import { statusClassButton } from '../../atoms/interfaces/button-class.interface';
 import { statusClassText } from '../../atoms/interfaces/text-class.interface';
+import { IUser } from 'src/app/domain/models/user/user.interface';
+import { UserActions } from 'src/app/ngxr/user/user.actions';
+import { userSelectors } from 'src/app/ngxr/user/user.selector';
 
 @Component({
   selector: 'app-header-data-user',
@@ -19,7 +19,7 @@ export class HeaderDataUserComponent implements OnInit {
   textStyle: statusClassText = statusClassText.MEDIUM;
   buttonStyle: statusClassButton = statusClassButton.GENERAL;
   colorIcon: string = 'gray';
-  user$: Observable<User>= new Observable();
+  user$: Observable<IUser>= new Observable();
 
   constructor(
     private router: Router,
@@ -37,13 +37,13 @@ export class HeaderDataUserComponent implements OnInit {
   }
 
   logOut(): void {
-    this.store.dispatch(authActions.accessToken({token: ''}));
+    this.store.dispatch(UserActions.accessToken({token: ''}));
     this.router.navigate(['/auth/login']);
   }
 
   getUser(): void {
-    this.store.dispatch(authActions.getUser());
-    this.user$ = this.store.select(authSelectors.user);
+    this.store.dispatch(UserActions.getUser());
+    this.user$ = this.store.select(userSelectors.user);
   }
 
   getCurrentUrl(): string {

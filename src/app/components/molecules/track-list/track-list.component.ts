@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { ITrack } from 'src/app/domain/models/track/track.interface';
 import { AppState } from 'src/app/ngxr/app.state';
 import { searchSelectors } from 'src/app/ngxr/searcher/search.selector';
 import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
-import { Track } from 'src/app/shared/interfaces/track.interface';
 
 @Component({
   selector: 'app-track-list',
@@ -12,7 +12,7 @@ import { Track } from 'src/app/shared/interfaces/track.interface';
 })
 export class TrackListComponent extends BaseComponent implements OnInit {
 
-  @Input() tracks: Track[] = [];
+  @Input() tracks: ITrack[] = [];
   textFilter: string = '';
 
   constructor(private store: Store<AppState>) { 
@@ -27,7 +27,6 @@ export class TrackListComponent extends BaseComponent implements OnInit {
     this.subSink$.add(
       this.store.select(searchSelectors.text).subscribe((text: string) => {
         this.textFilter = text;
-       // this.searchTrack(text);
       }) 
     )
   }

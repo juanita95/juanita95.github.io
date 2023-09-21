@@ -8,6 +8,10 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TrackService } from '../infrastructure/driven-adapter/track/track.service';
+import { TrackGateway } from '../domain/models/track/track.gateway';
+import { UserGateway } from '../domain/models/user/user.gateway';
+import { UserService } from '../infrastructure/driven-adapter/user/user.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     RouterModule
   ], 
+  providers: [
+    {provide: TrackGateway, useClass: TrackService},
+    {provide: UserGateway, useClass: UserService}
+  ],
   exports: [
     ComponentsModule,
     HomeComponent,

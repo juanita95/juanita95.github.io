@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { statusClassText } from 'src/app/components/atoms/interfaces/text-class.interface';
 import { AppState } from 'src/app/ngxr/app.state';
-import { authActions } from 'src/app/ngxr/auth/auth.actions';
+import { UserActions } from 'src/app/ngxr/user/user.actions';
 
 @Component({
   selector: 'app-token',
@@ -31,7 +31,7 @@ export class TokenComponent implements OnInit {
     const token = this.route.snapshot.fragment
       ?.split('=')[1]
       .split('&')[0];
-    this.store.dispatch(authActions.getToken({token}));
+    this.store.dispatch(UserActions.getToken({token}));
     this.router.navigate(['/spoty-app/home']);
   }
 

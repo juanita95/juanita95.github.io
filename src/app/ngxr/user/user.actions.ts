@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { User } from "src/app/core/interfaces/auth.interface";
+import { IUser } from "src/app/domain/models/user/user.interface";
 
 const getToken = createAction(
   '[auth] add token',
@@ -17,11 +17,11 @@ const getUser = createAction(
 
 const user = createAction(
   '[auth] get user data',
-  props<{ user: User }>()
+  props<{ user: IUser }>()
 );
   
     
-export const authActions = {
+export const UserActions = {
   accessToken,
   getToken,
   getUser,

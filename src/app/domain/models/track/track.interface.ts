@@ -1,8 +1,8 @@
-import { External_urls } from "src/app/core/interfaces/auth.interface";
+import { IExternalUrls } from "../user/user.interface";
 
-export class Track {
+export class ITrack {
 	album!: Album;
-  artists: Artist[] = [];
+  artists: IArtist[] = [];
   available_markets: string[] = [];
   disc_number: number = 0;
   duration_ms: number = 0;
@@ -22,7 +22,7 @@ export class Track {
 
 export interface Album {
   album_type: string;
-  artists: Artist[];
+  artists: IArtist[];
   available_markets: string[];
   href: string;
   id: string;
@@ -35,8 +35,8 @@ export interface Album {
   uri: string;
 }
 
-export interface Artist {
-  external_urls: External_urls;
+export interface IArtist {
+  external_urls: IExternalUrls;
   href: string;
   id: string;
   name: string;

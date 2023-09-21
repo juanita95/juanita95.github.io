@@ -15,9 +15,9 @@ import { Interceptor } from './shared/services/interceptor.service';
 import { ROOT_REDUCERS } from './ngxr/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { TrackEffect } from './ngxr/track/track.effects';
-import { AuthEffect } from './ngxr/auth/auth.effects';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { NgxLoadingModule } from 'ngx-loading';
+import { UserEffect } from './ngxr/user/user.effects';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
@@ -47,7 +47,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
       strictActionImmutability: false,
     },}),
     StoreDevtoolsModule.instrument({ name: 'TEST' }),
-    EffectsModule.forRoot([TrackEffect, AuthEffect])
+    EffectsModule.forRoot([TrackEffect, UserEffect])
   ],
   providers: [
     {

@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/ngxr/app.state';
-import { authActions } from 'src/app/ngxr/auth/auth.actions';
 import { statusClassText } from '../../atoms/interfaces/text-class.interface';
 import { MenuItem } from '../interfaces/sidebar-list.interface';
+import { UserActions } from 'src/app/ngxr/user/user.actions';
 
 @Component({
   selector: 'app-sidebar-item',
@@ -29,7 +29,7 @@ export class SidebarItemComponent implements OnInit {
   */
   logOut(title: string): void {
     if (!title.toLocaleLowerCase().includes('log out'.toLocaleLowerCase())) return;
-    this.store.dispatch(authActions.accessToken({token: ''}));
+    this.store.dispatch(UserActions.accessToken({token: ''}));
     this.router.navigate(['/auth/login']);
   }
 

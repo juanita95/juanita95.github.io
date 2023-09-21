@@ -1,10 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
-import { Track } from "src/app/shared/interfaces/track.interface";
 import { trackActions } from "./track.actions";
+import { ITrack } from "src/app/domain/models/track/track.interface";
 
 export interface TrackType {
-  getTracks: Track[];
-  favorites: Track[];
+  getTracks: ITrack[];
+  favorites: ITrack[];
   isFavorite: boolean;
 }
 

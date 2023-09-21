@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Track } from "src/app/shared/interfaces/track.interface";
+import { ITrack } from "src/app/domain/models/track/track.interface";
 
 const loadTracks = createAction(
   '[tracks] load tracks',
@@ -8,17 +8,17 @@ const loadTracks = createAction(
 
 const updateFavorites = createAction(
   '[Tracks] Add Favorite',
-  props<{ tracks: Track[] }>()
+  props<{ tracks: ITrack[] }>()
 );
 
 const favorites = createAction(
   '[Tracks] Add Favorite',
-  props<{ tracks: Track[] }>()
+  props<{ tracks: ITrack[] }>()
 );
 
 const tracks = createAction(
   '[Tracks] Get Tracks Success',
-  props<{ tracks: Track[] }>()
+  props<{ tracks: ITrack[] }>()
 );
   
 export const trackActions = {
