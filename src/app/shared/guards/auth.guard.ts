@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/ngxr/app.state';
+import { AppState } from 'src/app/configuration/ngxr/app.state';
 import { BaseComponent } from '../components/base-component/base-component';
-import { userSelectors } from 'src/app/ngxr/user/user.selector';
+import { userSelectors } from 'src/app/configuration/ngxr/user/user.selector';
 
 @Injectable({
   providedIn: 'root',

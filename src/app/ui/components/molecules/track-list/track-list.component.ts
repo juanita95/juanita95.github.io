@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ITrack } from 'src/app/domain/models/track/track.interface';
-import { AppState } from 'src/app/ngxr/app.state';
-import { searchSelectors } from 'src/app/ngxr/searcher/search.selector';
+import { AppState } from 'src/app/configuration/ngxr/app.state';
+import { searchSelectors } from 'src/app/configuration/ngxr/searcher/search.selector';
 import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
 
 @Component({

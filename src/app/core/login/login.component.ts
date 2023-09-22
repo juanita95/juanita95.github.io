@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { statusClassButton } from 'src/app/components/atoms/interfaces/button-class.interface';
-import { statusClassText } from 'src/app/components/atoms/interfaces/text-class.interface';
+import { statusClassButton } from 'src/app/ui/components/atoms/interfaces/button-class.interface';
+import { statusClassText } from 'src/app/ui/components/atoms/interfaces/text-class.interface';
 import { environment } from 'src/environments/environment';
 
 @Component({

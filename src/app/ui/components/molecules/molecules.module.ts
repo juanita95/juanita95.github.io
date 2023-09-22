@@ -7,7 +7,7 @@ import { TrackItemComponent } from './track-item/track-item.component';
 import { TrackListComponent } from './track-list/track-list.component';
 import { HeaderDataUserComponent } from './header-data-user/header-data-user.component';
 import { AtomsModule } from '../atoms/atoms.module';
-import { MaterialDesignerModule } from 'src/app/material-designer/material-designer.module';
+import { MaterialDesignerModule } from 'src/app/shared/material-designer/material-designer.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 

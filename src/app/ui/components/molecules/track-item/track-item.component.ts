@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/ngxr/app.state';
-import { trackActions } from 'src/app/ngxr/track/track.actions';
-import { trackSelectors } from 'src/app/ngxr/track/track.selector';
+import { AppState } from 'src/app/configuration/ngxr/app.state';
+import { trackActions } from 'src/app/configuration/ngxr/track/track.actions';
+import { trackSelectors } from 'src/app/configuration/ngxr/track/track.selector';
 import { statusClassText } from '../../atoms/interfaces/text-class.interface';
 import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
 import { ITrack } from 'src/app/domain/models/track/track.interface';

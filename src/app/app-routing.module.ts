@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'spoty-app',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+    loadChildren: () => import('./ui/pages/pages.module').then(m => m.PagesModule)
   },
   {
     path: '**',

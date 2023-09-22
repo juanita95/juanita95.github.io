@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ITrack } from 'src/app/domain/models/track/track.interface';
-import { AppState } from 'src/app/ngxr/app.state';
-import { trackActions } from 'src/app/ngxr/track/track.actions';
-import { trackSelectors } from 'src/app/ngxr/track/track.selector';
+import { AppState } from 'src/app/configuration/ngxr/app.state';
+import { trackActions } from 'src/app/configuration/ngxr/track/track.actions';
+import { trackSelectors } from 'src/app/configuration/ngxr/track/track.selector';
 import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
 
 @Component({
@@ -26,6 +26,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
 
   getTracks(): void {
     this.store.dispatch(trackActions.loadTracks({genre: 'pop'}));
+    
     this.subSink$.add(
       this.store.select(trackSelectors.getTracks).subscribe((tracks: ITrack[]) => {
         this.tracks = tracks;
