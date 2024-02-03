@@ -18,21 +18,24 @@ import { TrackEffect } from './configuration/ngxr/track/track.effects';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { NgxLoadingModule } from 'ngx-loading';
 import { UserEffect } from './configuration/ngxr/user/user.effects';
+import { LottieAnimationViewModule } from 'ng-lottie';
+import player from 'lottie-web';
+import { LottieModule } from 'ngx-lottie';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-    keys: [{ tracks: ['isFavorite', 'favorites']}, { auth: ['accessToken']}],
+    keys: [{ tracks: ['isFavorite', 'favorites'] }, { auth: ['accessToken'] }],
     rehydrate: true,
   })(reducer);
 }
 const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
-
+export function playerFactory(): any {
+  return import('lottie-web');
+}
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,13 +45,16 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     CoreModule,
     PagesModule,
     NgxLoadingModule,
-    StoreModule.forRoot(ROOT_REDUCERS, {metaReducers, runtimeChecks: {
-      strictStateImmutability: false,
-      strictActionImmutability: false,
-    },}),
+    StoreModule.forRoot(ROOT_REDUCERS, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+      },
+    }),
     StoreDevtoolsModule.instrument({ name: 'TEST' }),
-    EffectsModule.forRoot([TrackEffect, UserEffect])
-  ],
+    EffectsModule.forRoot([TrackEffect, UserEffect]),
+    LottieModule.forRoot({ player: playerFactory })  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -56,6 +62,6 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

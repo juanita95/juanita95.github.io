@@ -24,6 +24,7 @@
     "@ngrx/effects": "^14.3.0",
     "@ngrx/store": "^14.3.0",
     "@ngrx/store-devtools": "^14.3.0",
+    "ng-lottie": "^0.3.2",
     "ngrx-store-localstorage": "^14.0.0",
     "ngx-cookie-service": "^14.0.1",
     "ngx-loading": "^14.0.0",
