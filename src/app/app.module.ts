@@ -18,8 +18,6 @@ import { TrackEffect } from './configuration/ngxr/track/track.effects';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { NgxLoadingModule } from 'ngx-loading';
 import { UserEffect } from './configuration/ngxr/user/user.effects';
-import { LottieAnimationViewModule } from 'ng-lottie';
-import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
 
 export function localStorageSyncReducer(

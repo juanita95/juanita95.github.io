@@ -7,18 +7,17 @@ import { ComponentsModule } from '../ui/components/components.module';
 import { TokenComponent } from './token/token.component';
 import { CoreComponent } from './core.component';
 import { RouterModule } from '@angular/router';
+import { LottieModule } from 'ngx-lottie';
+import { playerFactory } from '../app.module';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    TokenComponent,
-    CoreComponent
-  ],
+  declarations: [LoginComponent, TokenComponent, CoreComponent],
   imports: [
     RouterModule,
     ComponentsModule,
     CommonModule,
-    CoreRoutingModule
-  ]
+    CoreRoutingModule,
+    LottieModule.forRoot({ player: playerFactory }),
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}
