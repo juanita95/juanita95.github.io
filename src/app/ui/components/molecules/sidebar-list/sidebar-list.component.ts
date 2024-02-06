@@ -12,18 +12,23 @@ export class SidebarListComponent implements OnInit {
   [
     {
       icon: '/assets/svg/home.svg',
-      router: '/spoty-app/home',
+      router: '/spotify-app/home',
       title: 'Home'
     },
     {
       icon: '/assets/svg/fav.svg',
-      router: '/spoty-app/favorites',
+      router: '/spotify-app/favorites',
       title: 'Favorites'
     },
     {
       icon: '/assets/svg/logout.svg',
-      router: '/spoty-app/favorites',
+      router: '/*',
       title: 'Log out'
+    },
+    {
+      icon: '/assets/svg/logout.svg',
+      router: '/spotify-app/personal',
+      title: 'Personal'
     }
   ];
 

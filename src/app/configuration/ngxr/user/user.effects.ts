@@ -8,14 +8,14 @@ import { UserActions } from './user.actions';
 export class UserEffect {
   constructor(
     private actions$: Actions,
-    private getTrackUseCase: GetUserUseCase
+    private getUserUseCase: GetUserUseCase
   ) {}
 
   loadUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.getUser),
       mergeMap(() =>
-        this.getTrackUseCase
+        this.getUserUseCase
           .invoke()
           .pipe(map((user) => UserActions.user({ user })))
       )

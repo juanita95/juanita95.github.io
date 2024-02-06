@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { statusClassButton } from 'src/app/ui/components/atoms/interfaces/button-class.interface';
 import { statusClassText } from 'src/app/ui/components/atoms/interfaces/text-class.interface';

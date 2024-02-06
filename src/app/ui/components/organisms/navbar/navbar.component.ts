@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import {Router } from "@angular/router";
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,9 @@ export class NavbarComponent implements OnInit {
   public panelOpenState = false;
   public BREAK_POINT_TABLET: number = 768;
   public innerWidth: number = 0;
+  options: AnimationOptions = {
+    path: '/assets/animations/sound.json',
+  };
 
   constructor(
     public router: Router,
@@ -41,7 +45,7 @@ export class NavbarComponent implements OnInit {
   clickOnLogo(): void {
     innerWidth < this.BREAK_POINT_TABLET 
       ? this.sidebar.toggle()
-      : this.router.navigate(['/spoty-app/home'])
+      : this.router.navigate(['/spotify-app/home'])
   }
 
 }

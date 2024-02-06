@@ -13,12 +13,16 @@ import { TrackGateway } from '../../domain/models/track/track.gateway';
 import { UserGateway } from '../../domain/models/user/user.gateway';
 import { UserService } from '../../infrastructure/driven-adapter/user/user.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PersonalComponent } from './personal/personal.component';
+import { playerFactory } from 'src/app/app.module';
+import { LottieModule } from 'ngx-lottie';
 
 @NgModule({
   declarations: [
     PagesComponent,
     HomeComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    PersonalComponent
   ],
   imports: [
     ComponentsModule,
@@ -26,7 +30,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HttpClientModule,
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ], 
   providers: [
     {provide: TrackGateway, useClass: TrackService},

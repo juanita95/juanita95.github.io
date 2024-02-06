@@ -2,13 +2,15 @@
 
   <app-icon 
     class="header__data__icon"
-    (click)="redirectToFavs()"
+    (click)="redirectToFav()"
     [color]="getCurrentUrl()"
     [url]="'/assets/svg/fav.svg'">
   </app-icon>
 
-  <app-text 
+  <app-text
+    class="header__data__text"
     *ngIf="user$ | async; let user"
+    (click)="redirectToPersonal()"
     [customStyle]="textStyle">
     {{user.display_name | customSplit:' '}}
   </app-text>

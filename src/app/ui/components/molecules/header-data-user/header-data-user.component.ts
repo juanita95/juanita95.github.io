@@ -30,10 +30,14 @@ export class HeaderDataUserComponent implements OnInit {
     this.getUser();
   }
 
-  redirectToFavs(): void {
-    this.router.navigate(['/spoty-app/favorites']);
+  redirectToFav(): void {
+    this.router.navigate(['/spotify-app/favorites']);
     this.colorIcon = this.router.url.includes('favorites') 
       ? 'white' : 'gray';
+  }
+
+  redirectToPersonal(): void {
+    this.router.navigate(['/spotify-app/personal']);
   }
 
   logOut(): void {

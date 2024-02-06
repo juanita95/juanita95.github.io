@@ -1,0 +1,34 @@
+<section class="personal">
+  <ng-lottie class="personal__animation" [options]="options">
+  </ng-lottie>
+
+  <div class="personal__content">
+    <app-text *ngIf="user$ | async; let user" [customStyle]="textStyle">
+      User:
+    </app-text>
+
+    <app-text *ngIf="user$ | async; let user" [customStyle]="textStyle">
+      {{ user.display_name }}
+    </app-text>
+  </div>
+
+  <div class="personal__content">
+    <app-text *ngIf="user$ | async; let user" [customStyle]="textStyle">
+      Identificador:
+    </app-text>
+
+    <app-text *ngIf="user$ | async; let user" [customStyle]="textStyle">
+      {{ user.id }}
+    </app-text>
+  </div>
+
+  <div class="personal__content">
+    <app-text *ngIf="user$ | async; let user" [customStyle]="textStyle">
+      Type:
+    </app-text>
+
+    <app-text *ngIf="user$ | async; let user" [customStyle]="textStyle">
+      {{ user.type }}
+    </app-text>
+  </div>
+</section>

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MaterialDesignerModule } from 'src/app/shared/material-designer/material-designer.module';
 import { MoleculesModule } from '../molecules/molecules.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LottieModule } from 'ngx-lottie';
+import { playerFactory } from 'src/app/app.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   imports: [
     CommonModule,
     MoleculesModule,
-    MaterialDesignerModule
+    MaterialDesignerModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ], 
   exports: [
     MoleculesModule,

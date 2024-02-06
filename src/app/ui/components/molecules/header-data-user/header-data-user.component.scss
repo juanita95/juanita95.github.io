@@ -24,4 +24,13 @@
     width: 2rem;
     height: 2rem;
   }
+
+  &__text {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
 }
+
+.header__data__text:hover {
+  transform: scale(1.5, 1.5);
+ }

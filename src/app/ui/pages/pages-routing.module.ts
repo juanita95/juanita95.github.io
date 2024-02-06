@@ -3,26 +3,31 @@ import { RouterModule, Routes } from '@angular/router';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
+import { PersonalComponent } from './personal/personal.component';
 
-const routes: Routes= [
+const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: PagesComponent,
-    children:[ 
+    children: [
       {
-      path:'home',
-      component: HomeComponent,
+        path: 'home',
+        component: HomeComponent,
       },
       {
-        path:'favorites',
+        path: 'favorites',
         component: FavoritesComponent,
-      }
-    ]
-  }
-]
+      },
+      {
+        path: 'personal',
+        component: PersonalComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PagesRoutingModule { }
+export class PagesRoutingModule {}

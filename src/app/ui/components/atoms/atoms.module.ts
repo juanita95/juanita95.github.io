@@ -7,7 +7,8 @@ import { TitleComponent } from './title/title.component';
 import { ImageComponent } from './image/image.component';
 import { IconComponent } from './icon/icon.component';
 import { AudioComponent } from './audio/audio.component';
-
+import { LottieModule } from 'ngx-lottie';
+import { playerFactory } from 'src/app/app.module';
 
 @NgModule({
   declarations: [    
@@ -20,7 +21,8 @@ import { AudioComponent } from './audio/audio.component';
     AudioComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ], 
   exports:[
     ButtonComponent,

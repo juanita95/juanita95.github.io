@@ -17,12 +17,14 @@ export class AuthGuard extends BaseComponent implements CanActivate {
       super()
     }
 
-  canActivate(){
+  canActivate(): boolean{
     let canAuth: boolean = false;
     this.subSink$.add(
       this.store
       .select(userSelectors.accessToken)
       .subscribe((token) => {
+        console.log(token);
+        
         canAuth = token  === '';
       })
     )

@@ -32,7 +32,7 @@ export class TokenComponent implements OnInit {
       ?.split('=')[1]
       .split('&')[0];
     this.store.dispatch(UserActions.getToken({token}));
-    this.router.navigate(['/spoty-app/home']);
+    this.router.navigate(['/spotify-app/home']);
   }
 
 }
