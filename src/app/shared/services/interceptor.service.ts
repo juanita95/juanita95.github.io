@@ -9,11 +9,11 @@ import {
 import { catchError, finalize, Observable, of, throwError } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { AppState } from 'src/app/configuration/ngxr/app.state';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
 import { BaseComponent } from '../components/base-component/base-component';
 import { LoadingService } from './loading.service';
-import { UserActions } from 'src/app/configuration/ngxr/user/user.actions';
-import { userSelectors } from 'src/app/configuration/ngxr/user/user.selector';
+import { UserActions } from 'src/app/configuration/ngrx/user/user.actions';
+import { userSelectors } from 'src/app/configuration/ngrx/user/user.selector';
 
 @Injectable()
 export class Interceptor extends BaseComponent implements HttpInterceptor {

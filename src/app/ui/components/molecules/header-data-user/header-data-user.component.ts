@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from 'src/app/configuration/ngxr/app.state';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
 import { statusClassButton } from '../../atoms/interfaces/button-class.interface';
 import { statusClassText } from '../../atoms/interfaces/text-class.interface';
 import { IUser } from 'src/app/domain/models/user/user.interface';
-import { UserActions } from 'src/app/configuration/ngxr/user/user.actions';
-import { userSelectors } from 'src/app/configuration/ngxr/user/user.selector';
+import { UserActions } from 'src/app/configuration/ngrx/user/user.actions';
+import { userSelectors } from 'src/app/configuration/ngrx/user/user.selector';
 
 @Component({
   selector: 'app-header-data-user',

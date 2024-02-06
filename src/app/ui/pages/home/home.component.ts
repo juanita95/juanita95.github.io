@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ITrack } from 'src/app/domain/models/track/track.interface';
-import { AppState } from 'src/app/configuration/ngxr/app.state';
-import { trackActions } from 'src/app/configuration/ngxr/track/track.actions';
-import { trackSelectors } from 'src/app/configuration/ngxr/track/track.selector';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
+import { trackActions } from 'src/app/configuration/ngrx/track/track.actions';
+import { trackSelectors } from 'src/app/configuration/ngrx/track/track.selector';
 import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
 
 @Component({

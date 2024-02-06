@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/configuration/ngxr/app.state';
-import { searchSelectors } from 'src/app/configuration/ngxr/searcher/search.selector';
-import { trackSelectors } from 'src/app/configuration/ngxr/track/track.selector';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
+import { searchSelectors } from 'src/app/configuration/ngrx/searcher/search.selector';
+import { trackSelectors } from 'src/app/configuration/ngrx/track/track.selector';
 import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
 import { statusClassText } from '../../atoms/interfaces/text-class.interface';
 

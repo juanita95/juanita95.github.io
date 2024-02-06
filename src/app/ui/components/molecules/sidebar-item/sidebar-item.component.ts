@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/configuration/ngxr/app.state';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
 import { statusClassText } from '../../atoms/interfaces/text-class.interface';
 import { MenuItem } from '../interfaces/sidebar-list.interface';
-import { UserActions } from 'src/app/configuration/ngxr/user/user.actions';
+import { UserActions } from 'src/app/configuration/ngrx/user/user.actions';
 
 @Component({
   selector: 'app-sidebar-item',

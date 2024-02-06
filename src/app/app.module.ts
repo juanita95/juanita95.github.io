@@ -12,12 +12,12 @@ import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Interceptor } from './shared/services/interceptor.service';
-import { ROOT_REDUCERS } from './configuration/ngxr/app.state';
+import { ROOT_REDUCERS } from './configuration/ngrx/app.state';
 import { EffectsModule } from '@ngrx/effects';
-import { TrackEffect } from './configuration/ngxr/track/track.effects';
+import { TrackEffect } from './configuration/ngrx/track/track.effects';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { NgxLoadingModule } from 'ngx-loading';
-import { UserEffect } from './configuration/ngxr/user/user.effects';
+import { UserEffect } from './configuration/ngrx/user/user.effects';
 import { LottieModule } from 'ngx-lottie';
 
 export function localStorageSyncReducer(

@@ -1,10 +1,10 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fromEvent } from 'rxjs';
-import { AppState } from 'src/app/configuration/ngxr/app.state';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
 import { debounceTime, tap } from 'rxjs/operators';
 import { BaseComponent } from 'src/app/shared/components/base-component/base-component';
-import { searchActions } from 'src/app/configuration/ngxr/searcher/search.actions';
+import { searchActions } from 'src/app/configuration/ngrx/searcher/search.actions';
 
 @Component({
   selector: 'app-search-input',
