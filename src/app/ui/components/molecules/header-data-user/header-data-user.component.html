@@ -1,29 +1,27 @@
-<div class="header__data">
-
-  <app-icon 
+<div class="header__data" itemscope itemtype="https://schema.org/Person">
+  <app-icon
     class="header__data__icon"
     (click)="redirectToFav()"
     [color]="getCurrentUrl()"
-    [url]="'/assets/svg/fav.svg'">
+    [url]="'/assets/svg/fav.svg'"
+  >
   </app-icon>
 
   <app-text
+    itemprop="name"
     class="header__data__text"
     *ngIf="user$ | async; let user"
     (click)="redirectToPersonal()"
-    [customStyle]="textStyle">
-    {{user.display_name | customSplit:' '}}
+    [customStyle]="textStyle"
+  >
+    {{ user.display_name | customSplit : " " }}
   </app-text>
 
-  <app-button 
+  <app-button
     (click)="logOut()"
-    class="header__data__button" 
-    [customStyle]="buttonStyle">
-    <app-text 
-      [customStyle]="textStyle">
-      cerrar sesion
-    </app-text>
+    class="header__data__button"
+    [customStyle]="buttonStyle"
+  >
+    <app-text [customStyle]="textStyle"> cerrar sesion </app-text>
   </app-button>
-
 </div>
-
