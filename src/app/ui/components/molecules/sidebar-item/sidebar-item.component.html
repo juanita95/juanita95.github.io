@@ -1,16 +1,14 @@
 <div
   class="items"
+  [attr.aria-label]="menuItem.title"
   (click)="logOut(menuItem.title)"
   [routerLink]="menuItem.router"
+  tabindex="0"
 >
-  <app-icon 
-    class="items__icon"
-    [color]="'white'"
-    [url]="menuItem.icon">
+  <app-icon class="items__icon" [color]="'white'" [url]="menuItem.icon">
   </app-icon>
 
-  <app-text 
-    [customStyle]="textStyle">
+  <app-text [customStyle]="textStyle">
     {{ menuItem.title }}
   </app-text>
 </div>

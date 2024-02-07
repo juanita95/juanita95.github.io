@@ -19,16 +19,15 @@
     <header class="navbar__header">
       <mat-toolbar class="navbar__toolbar">
         <app-image
+          aria-label="Mostrar menu de opciones"
+          tabindex="0"
           (click)="clickOnLogo()"
           class="navbar__logo"
           [iconUrl]="'/assets/svg/spotify-icon.svg'"
         >
         </app-image>
 
-        <ng-lottie
-          class="navbar__toolbar__animation"
-          [options]="options"
-        >
+        <ng-lottie class="navbar__toolbar__animation" [options]="options">
         </ng-lottie>
         <!--    links routes desktop-->
         <div class="navbar__user">
