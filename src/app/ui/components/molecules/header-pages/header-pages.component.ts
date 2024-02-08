@@ -21,15 +21,6 @@ export class HeaderPagesComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getText()
   }
-
-  getText(): void {  
-    this.subSink$.add(
-      this.store.select(searchSelectors.text).subscribe((text) => {
-      }) 
-    )
-  }
-
 
 }

@@ -28,7 +28,6 @@ export class SearchInputComponent extends BaseComponent implements OnInit {
     this.subSink$.add(
       fromEvent(this.text.nativeElement,'keyup')
       .pipe(
-          debounceTime(1000),
           tap(() => {
             const text = this.text.nativeElement.value
             this.store.dispatch(searchActions.getText({text}));
