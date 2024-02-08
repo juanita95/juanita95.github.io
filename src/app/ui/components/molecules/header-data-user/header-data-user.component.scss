@@ -1,0 +1,36 @@
+@import "src/assets/styles/tokens/breakpoints";
+
+.header__data {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: $breakpoint-tablet) {
+    justify-content: flex-end;
+    gap: .6rem;
+    padding: 0 2rem;
+  }
+  &__button {
+    @media (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+    min-width: 8rem;
+  }
+  &__icon {
+    @media (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__text {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.header__data__text:hover {
+  transform: scale(1.5, 1.5);
+ }

@@ -1,0 +1,11 @@
+.personal {
+  &__animation {
+    height: 29rem;
+    display: flex;
+  }
+  &__content {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}

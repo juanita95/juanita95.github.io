@@ -1,0 +1,31 @@
+<div class="header__data" itemscope itemtype="https://schema.org/Person">
+  <app-icon
+    aria-label="Ir a la sección de favoritos"
+    tabindex="0"
+    class="header__data__icon"
+    (click)="redirectToFav()"
+    [color]="getCurrentUrl()"
+    [url]="'/assets/svg/fav.svg'"
+  >
+  </app-icon>
+
+  <app-text
+    aria-label="Nombre de usuario"
+    itemprop="name"
+    class="header__data__text"
+    *ngIf="user$ | async; let user"
+    (click)="redirectToPersonal()"
+    [customStyle]="textStyle"
+  >
+    {{ user.display_name | customSplit : " " }}
+  </app-text>
+
+  <app-button
+    aria-label="Salir de la aplicación"
+    (click)="logOut()"
+    class="header__data__button"
+    [customStyle]="buttonStyle"
+  >
+    <app-text [customStyle]="textStyle"> cerrar sesion </app-text>
+  </app-button>
+</div>

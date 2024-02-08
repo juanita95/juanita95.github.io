@@ -16,5 +16,11 @@
     min-width: 8rem;  
     width: 9rem;
     align-self: center;
+
+    &__animation{
+      height: 25%;
+      width: auto;
+      position: absolute;
+    }
   }
 }

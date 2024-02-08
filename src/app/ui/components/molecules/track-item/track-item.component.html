@@ -1,0 +1,48 @@
+<ng-container
+  *ngIf="track"
+  itemprop="track"
+  itemscope
+  itemtype="https://schema.org/MusicRecording"
+>
+  <section class="card">
+    <app-image
+      *ngIf="track.album.images[0]"
+      class="card__img"
+      [iconUrl]="track.album.images[0].url"
+      [alt]="'imagen canción'"
+    >
+    </app-image>
+
+    <div class="card__info">
+      <div class="card__info_title">
+        <app-text itemprop="name" class="card__text" [customStyle]="textStyle"
+          >{{ track.name }}
+        </app-text>
+
+        <app-text
+          itemprop="byArtist"
+          class="card__text"
+          [customStyle]="textStyle"
+        >
+          By {{ getNameArtist() }}
+        </app-text>
+      </div>
+
+      <app-icon
+        class="card__icon"
+        (click)="addRemoveFavorites()"
+        [color]="addColorIcon()"
+        [url]="'/assets/svg/fav.svg'"
+      >
+      </app-icon>
+    </div>
+
+    <app-audio
+      itemprop="name"
+      class="card__audio"
+      *ngIf="track.preview_url"
+      [url]="track.preview_url"
+    >
+    </app-audio>
+  </section>
+</ng-container>

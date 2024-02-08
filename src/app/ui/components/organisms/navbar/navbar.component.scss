@@ -1,0 +1,84 @@
+@import "src/assets/styles/tokens/breakpoints";
+
+.navbar  {
+  height: 100%;
+  width: 100%;
+
+  .mat-drawer-inner-container {
+    display: grid;
+    grid-template-rows: 95px auto;
+  }
+
+  &__drawer {
+    overflow: hidden;
+    display: grid;
+    height: 100%;
+    grid-template-rows: max-content auto;
+  }
+  &__toolbar {
+    width: 100%;
+    display: grid;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: auto auto auto;
+    padding: .5rem;
+    border-bottom: 1px solid var(--color-secondary-background);
+    background-color: var(--color-primary-background);
+    transition: background-color 0.7s;
+    &__animation {
+      width: 10rem;
+      height: 6rem;
+    }
+  }
+  &__user {
+    width: 19rem;
+    @media (max-width: $breakpoint-tablet) {
+      width: auto;
+      background: var(--color-gray-background);
+      width: auto;
+      border-radius: 10px;
+    }
+    &__content {
+      width: 100%;
+    }
+  }
+  &__logo {
+    width: 8rem;
+  }
+
+  &__sidebar {
+    border-radius: 0 40px 40px 0;
+    width: 70%;
+    border: 1px solid var(--color-secondary-background);
+    transition: width 0.8s;
+    background-color: var(--color-primary-background);
+    &__header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background-color: var(--color-secondary-background);
+    }
+    &__logo {
+      display: flex;
+      width: 8rem;
+    }
+
+    &__menu {
+      display: flex;
+      width: 100%;
+      justify-content: start;
+      padding: 2rem;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    padding: 2rem 0;
+    overflow: auto;
+    justify-content: center;
+    background-color: var(--color-primary-background);
+  }
+}
