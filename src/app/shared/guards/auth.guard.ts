@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/ngxr/app.state';
-import { authSelectors } from 'src/app/ngxr/auth/auth.selector';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
 import { BaseComponent } from '../components/base-component/base-component';
+import { userSelectors } from 'src/app/configuration/ngrx/user/user.selector';
 
 @Injectable({
   providedIn: 'root',
@@ -17,12 +17,14 @@ export class AuthGuard extends BaseComponent implements CanActivate {
       super()
     }
 
-  canActivate(){
+  canActivate(): boolean{
     let canAuth: boolean = false;
     this.subSink$.add(
       this.store
-      .select(authSelectors.accessToken)
+      .select(userSelectors.accessToken)
       .subscribe((token) => {
+        console.log(token);
+        
         canAuth = token  === '';
       })
     )

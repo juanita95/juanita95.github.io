@@ -9,11 +9,11 @@ import {
 import { catchError, finalize, Observable, of, throwError } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { AppState } from 'src/app/ngxr/app.state';
-import { authSelectors } from 'src/app/ngxr/auth/auth.selector';
+import { AppState } from 'src/app/configuration/ngrx/app.state';
 import { BaseComponent } from '../components/base-component/base-component';
-import { authActions } from 'src/app/ngxr/auth/auth.actions';
 import { LoadingService } from './loading.service';
+import { UserActions } from 'src/app/configuration/ngrx/user/user.actions';
+import { userSelectors } from 'src/app/configuration/ngrx/user/user.selector';
 
 @Injectable()
 export class Interceptor extends BaseComponent implements HttpInterceptor {
@@ -36,7 +36,7 @@ export class Interceptor extends BaseComponent implements HttpInterceptor {
     this.loadingService.setLoading(true);
     this.subSink$.add(
       this.store
-      .select(authSelectors.accessToken)
+      .select(userSelectors.accessToken)
       .subscribe((token) => (this.accessToken = token))
     )
  
@@ -50,7 +50,7 @@ export class Interceptor extends BaseComponent implements HttpInterceptor {
     return next.handle(apiReq).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err?.error?.error?.message === 'The access token expired') {
-          this.store.dispatch(authActions.accessToken({token: ''}));
+          this.store.dispatch(UserActions.accessToken({token: ''}));
           this.router.navigate(['/auth/login']);
         }
         return of();

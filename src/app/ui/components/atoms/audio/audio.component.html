@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <audio aria-label="Reproductor de audio" tabindex="0" controls="controls" class="wrapper__audio" (play)="onPlay()" (pause)="onPause()">
+    <source [src]="url" type="audio/mpeg" />
+  </audio>
+  <ng-lottie
+    *ngIf="canShowNoteAnimation"
+    class="wrapper__audio__animation"
+    [options]="options"
+  >
+  </ng-lottie>
+</div>
