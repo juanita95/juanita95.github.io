@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   public BREAK_POINT_TABLET: number = 768;
   public innerWidth: number = 0;
   options: AnimationOptions = {
-    path: '/assets/animations/sound.json',
+    path: 'assets/animations/sound.json',
   };
 
   constructor(
@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
    * open/close sidebar or redirect to home
   */
   clickOnLogo(): void {
-    innerWidth < this.BREAK_POINT_TABLET 
+    innerWidth < this.BREAK_POINT_TABLET
       ? this.sidebar.toggle()
       : this.router.navigate(['/spotify-app/home'])
   }

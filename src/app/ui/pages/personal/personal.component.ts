@@ -18,7 +18,7 @@ export class PersonalComponent implements OnInit {
   user$: Observable<IUser>= new Observable();
   textStyle: statusClassText = statusClassText.MEDIUM;
   options: AnimationOptions = {
-    path: '/assets/animations/girl.json',
+    path: 'assets/animations/girl.json',
   };
 
   constructor(private store: Store<AppState>) {}
@@ -32,7 +32,7 @@ export class PersonalComponent implements OnInit {
     this.user$ = this.store.select(userSelectors.user);
     this.store.select(userSelectors.user).subscribe((data) => {
       console.log(data);
-      
-    })    
+
+    })
   }
 }

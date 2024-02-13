@@ -8,25 +8,25 @@ import { MenuItem } from '../interfaces/sidebar-list.interface';
 })
 export class SidebarListComponent implements OnInit {
 
-  menuItems: MenuItem[] = 
+  menuItems: MenuItem[] =
   [
     {
-      icon: '/assets/svg/home.svg',
+      icon: 'assets/svg/home.svg',
       router: '/spotify-app/home',
       title: 'Home'
     },
     {
-      icon: '/assets/svg/fav.svg',
+      icon: 'assets/svg/fav.svg',
       router: '/spotify-app/favorites',
       title: 'Favorites'
     },
     {
-      icon: '/assets/svg/logout.svg',
+      icon: 'assets/svg/logout.svg',
       router: '/*',
       title: 'Log out'
     },
     {
-      icon: '/assets/svg/logout.svg',
+      icon: 'assets/svg/logout.svg',
       router: '/spotify-app/personal',
       title: 'Personal'
     }

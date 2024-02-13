@@ -10,7 +10,7 @@ export class AudioComponent implements OnInit {
   @Input() url: string = '';
   canShowNoteAnimation: boolean = false;
   options: AnimationOptions = {
-    path: '/assets/animations/note.json',
+    path: 'assets/animations/note.json',
   };
 
   constructor() {}

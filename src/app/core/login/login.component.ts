@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   textButton: statusClassText = statusClassText.MEDIUM;
   canShowConfettiAnimation: boolean = false;
   options: AnimationOptions = {
-    path: '/assets/animations/confetti.json',
+    path: 'assets/animations/confetti.json',
   };
   constructor(private router: Router) {}
 
