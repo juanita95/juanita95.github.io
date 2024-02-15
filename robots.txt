@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /spoty-app/personal
+Disallow: //personal/
 Disallow: /css/
 Disallow: /js/
 Disallow: /assets/
