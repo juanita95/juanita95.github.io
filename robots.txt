@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /juanitafy/spotify-app/personal
+Disallow: /spotify-app/personal
 Disallow: /css/
 Disallow: /js/
 Disallow: /assets/
